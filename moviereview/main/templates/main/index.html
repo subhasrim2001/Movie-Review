@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<!--<h1>This is returning from the templates folder</h1>-->
+<div class="container">
+    <br>
+    <div class="card" id="backdrop">
+        <div class="card-body">
+            <div class="row">
+                {% for movie in movies %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <centre><img src="{{ movie.image }}" alt="" class="img-fluid" width="75%"></centre>
+                            <h3 class="text-center">{{ movie.name }}</h3>
+                            <div class="text-center">
+                                <i class="text-center">{{ movie.release_date }}</i>
+                                <a href="{% url 'main:detail' movie.id %}">Read More</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
